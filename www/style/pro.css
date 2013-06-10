@@ -1,0 +1,414 @@
+
+
+/*
+ * PRO
+ */
+html, body {
+    height: 100%;
+}
+html {
+    overflow-y: scroll;
+}
+body {
+    background: #f5f5f5 url(img/bg_body.jpg);
+}
+
+#page {
+    padding-bottom: 4em; /* footer height */
+}
+
+/* Largeur de la page */
+header .wrap, section.content, section.content-wide .wrap, footer > .wrap {
+    /*width: 960px;*/
+    width: 800px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+}
+
+header {
+    background: #00416E;
+    background: -moz-linear-gradient(#0f69a0, #00416E 105%);
+    background: -webkit-linear-gradient(#0f69a0, #00416E 105%);
+    background: linear-gradient(#0f69a0, #00416E 105%);    
+    /*-moz-box-shadow: 0 0 3px #eee; -webkit-box-shadow: 0 0 3px #eee; box-shadow: 0 0 3px #eee;*/
+    min-height: 37px;
+    left: 0;
+    overflow: visible;
+    position: static;
+    right: 0;
+    top: 0;
+    z-index: 10001;
+    
+}
+    header > .wrap {
+        padding: 0;
+    }
+    
+#logo {
+    float: left;
+    height: 27px;
+    margin: 7px 0;
+}
+#logo {
+    background: url("img/bluenod-logo-small-white.png") no-repeat;
+    width: 83px;
+}
+#logo.pro {
+    background: url("img/bluenodpro-logo-small-white.png") no-repeat;
+    width: 123px;
+}
+    #logo a {
+        display: block;
+        height: 100%;
+        text-indent: -9999px;
+        width: 100%;
+    }
+
+
+        
+/* Footer */
+
+footer {
+    bottom: 0;
+    height: 4em;
+    position: absolute;
+    width: 100%;
+}
+    footer > .wrap {
+        border-top: 1px solid #eee;
+        margin: 0 auto;
+        padding: 0;
+    }
+        footer nav {
+            float: right;
+            font-size: 12px;
+            height: 4em;
+            line-height: 4em;
+        }
+            footer nav li { 
+                display: inline-block;
+                margin-left: 2em;
+            }
+                footer nav li a {
+                    color: #222;
+                    text-transform: uppercase;
+                }
+                footer nav li a:hover {
+                    color: #35abef;
+                    text-decoration: none;
+                }
+                footer nav li a.selected {
+                    font-weight: bold;
+                }
+
+footer .copyright {
+    display: none;
+    float: left;
+    height: 60px;
+    line-height: 60px;
+}
+
+/* Contenu */
+
+section.content {
+    margin: 2em auto;
+}
+section.content-wide {
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2) inset;
+    position: relative;
+    width: 100%;
+}
+    .content-wide .wrap {
+        height: 100%;
+        margin: auto;
+        overflow: hidden;
+    }
+        .content-wide h2 {
+            font-size: 28px;
+            margin: 0;
+        }
+    section.content strong { 
+        font-weight: bold;
+    }
+    section.content em { 
+        font-style: italic;
+    }
+    
+aside {
+    float: left;
+    padding-top: 2em;
+    width: 20%;
+}
+    aside > ul {
+        /*box-shadow: 0px 3px 3px rgba(0,0,0,0.05);*/
+        border: 0;
+    }
+article {
+    font-size: 16px;
+    float: right;
+    width: 80%;
+}
+article.without-aside {
+    width: 100%;
+}
+    article > .wrap {
+        background: #fff;
+        border: 1px solid rgba(0, 0, 0, 0.125);
+        -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+        padding: 1em;
+    } 
+        article h2:first-child {
+            border-bottom: 1px solid #ddd;
+            color: #00416E;
+            font-weight: normal;
+            font-size: 1.5em;
+            margin-top: 0;
+            padding-bottom: 0.25em;
+        }
+
+form.two-col {
+    
+}
+    form.two-col fieldset {
+        border-bottom: 1px solid #eee;
+        margin: 0 0;
+        padding: 1em 0;
+    }
+    form.two-col fieldset:last-child {
+        border-bottom: 0;
+    }
+        form.two-col legend {
+            border: 0;
+            color: #444;
+            font-size: 0.8em;
+            font-weight: bold;
+            width: 20%;
+            float: left;
+        }
+        form.two-col fieldset > ul {
+            width: 80%;
+            float: right;
+        }
+            form.two-col fieldset > ul > li {
+                padding: 0 0 0.5em;
+            }
+            form.two-col fieldset > ul > li:last-child { 
+                padding-bottom: 0;
+            }
+                form.two-col input[type="radio"] {
+                    margin: 0;
+                }
+                form.two-col .label-radio {
+                    margin-right: 0.4em;
+                }
+                form.two-col input[type="file"] {
+                    margin-top: 0.4em;
+                }
+                form.two-col input[data-type="date-day"] {
+                    width: 7em;
+                }
+                form.two-col input[data-type="date-time"] {
+                    width: 4em;
+                }
+                form.two-col .time-period > ul > li {
+                    display: inline-block;
+                    width: 49%;
+                    vertical-align: top;
+                }
+                form.two-col .time-period .popover {
+                    /*margin-left: -40px !important;*/
+                }
+                    form.two-col .time-period .popover-content {
+                        font-size: 13px;
+                        line-height: 1.5em;
+                        max-height: 10em;
+                        overflow-y: scroll;
+                        padding: 0;
+                    }
+                        form.two-col .time-period .popover-content a {
+                            color: #888;
+                            padding: 0.25em 0.75em;
+                        }
+                        form.two-col .time-period .popover-content a:hover {
+                            background: #0F69A0;
+                            color: #fff;
+                            text-decoration: none;
+                        }
+
+                        
+                form.two-col .input-box { /* même style que les input */
+
+                }
+                    form.two-col .input-box .inside-title {
+                        background: #eee;
+                        border: 1px solid #ccc;
+                        border-radius: 4px 0 0 4px;
+                        display: inline-block;
+                        color: #888;
+                        line-height: normal;
+                        padding: 0.5em;
+                        position: static;
+                        text-indent: 0;
+                    }
+                    form.two-col .input-box input[type="text"] {
+                        border-left:0;
+                        border-top-left-radius: 0;
+                        border-bottom-left-radius: 0;
+                    }
+                form.two-col span.error {
+                    color: darkred;
+                    display: block;
+                    font-size: 0.75em;
+                    opacity: 0.8;
+                    padding: 0.75em 0 0;
+                }
+                /*form.two-col .f-right {
+                    margin-top: 0.75em;
+                    margin-left: 0.75em;
+                }*/
+/* Maps */
+ul.maps {
+    font-size: 16px;
+    margin: 40px auto;
+    max-width: 720px;
+    overflow: hidden;
+}
+    ul.maps > li {
+        float: left;
+        margin: 0 2% 20px 0;
+        height: 160px;
+        overflow: hidden;
+        text-align: center;
+        width: 23.5%;
+    }
+    ul.maps > li:nth-child(4n) {
+        margin-right: 0;
+    }
+        ul.maps > li img, .map-logo {
+                background: #fff;
+                -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;
+                -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+                -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+                display: inline-block;
+                height: 96px;
+                width: 96px;
+        }
+        ul.maps > li .text {
+
+        }
+            ul.maps > li .text h3 {
+                margin: 0.5em;
+            }
+                ul.maps > li .text h3 a {
+                    color: #555;
+                    font-weight: bold;
+                }
+            ul.maps > li a.action {
+                color: #aaa;
+                display: block;
+                font-size: 0.7em;
+            }
+
+        
+/* Pagination */
+.pagination {
+    font-size: 14px;
+    margin: 2em 0;
+    text-align: center;
+}
+    .pagination a {
+        color: #888;
+        padding: 3px;
+    }
+    .pagination a.actif{ 
+        color: #000;
+        font-weight: bold;
+    }
+    .paginationPoints {
+        color:#aaa;
+        font-size:0.9em;
+        font-weight:bold;
+        left:0.1em;
+        line-height:1.3em;
+        margin: 0 0.5em;
+        position:relative;
+        text-align:center;
+        top:-0.3em;
+    }    
+    
+/* Notifications */
+
+
+.notices {
+
+}
+    .notice:first-child {
+        margin-top: 0;
+    }
+    
+    
+/* Bootstrap */
+
+.nav-tabs > li > a {
+    background: none;
+    border: 0 !important;
+    border-radius: 4px 0 0 4px !important;
+    color: #888;
+}
+.nav > li > a:hover, .nav > li > a:focus {
+    background: none;
+    color: #555;
+}
+.nav-tabs > .active > a, .nav-tabs > .active > a:hover, .nav-tabs > .active > a:focus {
+    background: #0F69A0;
+    color: #fff;
+}
+
+/*
+ * Media queries
+ */
+
+@media (max-width:980px) {
+    
+    header .wrap, section.content, section.content-wide .wrap, footer > .wrap {
+        width: auto;
+    }
+    header .wrap, section.content-wide {
+    }
+    footer > .wrap {
+        padding: 0 1em;
+    }
+    section.content {
+        padding: 0 1em;
+        overflow: hidden;
+    }
+     
+} /* Fin media query (max-width:980px) */
+
+
+@media (max-width : 480px) {
+
+    #logo, header nav {
+        float: none;
+        margin: 1em auto;
+        text-align: center;
+    }
+        header nav li {
+            display: block;
+            margin: 1em !important;
+        }
+    
+    #examples-list > li {
+        margin-right: 0;
+        width: 100%;
+    }
+        #examples-list > li img {
+            display: block;
+            float: none;
+            margin: auto;
+        }
+}

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1; user-scalable=0" />
+        <meta charset="utf-8" />
+        
+        <title>Bluenod | Visualize communities</title>
+        <meta name="description" content="Bluenod is a simple way to search and explore communities.">
+        <link rel="image_src" href="style/img/map_preview_400px.jpg" />
+        <link rel="icon" type="image/png" href="style/img/favicon.png" />
+        
+        <!-- CSS -->
+        <link rel="stylesheet" type="text/css" href="style/ext/bootstrap.min.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="style/app.css" media="screen" />        
+        <link rel="stylesheet" type="text/css" href="style/mapping.css" />
+        
+        <!-- JS -->
+        <script type="text/javascript" src="js/jquery/jquery.min.js"></script>
+        <!--<script type="text/javascript" src="js/jquery-ui/1.8.12.custom.min.js"></script>  -->
+        <script type="text/javascript" src="js/jquery/jquery.json-min.js"></script>
+        <script type="text/javascript" src="js/jquery/jquery.nicescroll.3/jquery.nicescroll.min.js"></script>        
+        <script type="text/javascript" src="js/app.k169xY31oS.js"></script>
+        <script type="text/javascript" src="js/mixpanel-2.1.min.js"></script>
+        <script type="text/javascript" src="js/misc.js"></script>
+        <script type="text/javascript" src="js/twitter/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/lib/jquery.hammer.min.js"></script>
+        <script src="cordova-2.4.0.js"></script>
+
+
+ 
+    <!-- start Mixpanel --><script type="text/javascript">(function(c,a){window.mixpanel=a;var b,d,h,e;b=c.createElement("script");b.type="text/javascript";b.async=!0;b.src=("https:"===c.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.1.min.js';d=c.getElementsByTagName("script")[0];d.parentNode.insertBefore(b,d);a._i=[];a.init=function(b,c,f){function d(a,b){var c=b.split(".");2==c.length&&(a=a[c[0]],b=c[1]);a[b]=function(){a.push([b].concat(Array.prototype.slice.call(arguments,0)))}}var g=a;"undefined"!==typeof f?
+g=a[f]=[]:f="mixpanel";g.people=g.people||[];h="disable track track_pageview track_links track_forms register register_once unregister identify name_tag set_config people.identify people.set people.increment".split(" ");for(e=0;e<h.length;e++)d(g,h[e]);a._i.push([b,c,f])};a.__SV=1.1})(document,window.mixpanel||[]);
+mixpanel.init("711a34dff1c30556576f5c0750cb62bb");</script><!-- end Mixpanel -->        
+    </head>
+    <body class="mapping client logged-in tw-connected   has-TM-on no-header-img no-logo-img desktop">
+        
+        <div id="barre" class="clearfix">
+            
+            <div id="bluenod-logo">
+                <a href="http://bluenod.com/" target="_blank">Bluenod</a>
+            </div>
+
+            <div id="titre">
+                <h1>
+                    <a href="http://bluenod.com" class="text">
+                                            </a>
+                </h1>
+                <h2>Visualization of Twitter Community</h2>
+            </div>
+            
+            <div id="share">
+                                                            </div>
+            
+        </div> <!-- fin de #barre -->
+        
+        <ul id="account"></ul>
+        
+                <ul id="autocomplete"></ul>
+        
+        <div id="panels-wrapper">
+            
+            <div id="sidebar-menu">
+                <ul id="tabs-menu">
+                    <li class="users profile">
+                        <a href="#users">
+                            <span class="ico"></span>
+                            <span class="text">Users</span>
+                        </a>
+                    </li>
+                    <li class="tweets">
+                        <a href="#tweets">
+                            <span class="ico"></span>
+                            <span class="text">Tweets</span>
+                        </a>
+                    </li>
+                    <!--<li class="profile">
+                        <a href="#profile">
+                            <span class="ico"></span>
+                            <span class="text">Profile</span>
+                        </a>
+                    </li>-->
+                </ul>
+                <div id="mini-stats">
+                    <ul class="numbers">
+                        <li class="tweets selected">
+                            <a href="#tweets">
+                                <span class="icon"></span>
+                                <span class="count"></span>
+                            </a>
+                        </li>
+                        <li class="users by_mentions">
+                            <a href="#by_mentions">
+                                <span class="icon"></span>
+                                <span class="count"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <ul id="panels">
+                
+                <li class="panel users"><div class="wrap"></div></li>
+                <li class="panel tweets">
+                    <div class="wrap">
+                        <ul class="tweets-list"></ul>
+                    </div>
+                </li>
+                <li class="panel profile">
+                    <div class="wrap">
+                        <!--<div class="research">
+                            <form id="recherche"><input id="inputrecherche" value="" placeholder="Find a user on the map" title="Find a user on the map" autocomplete="off" />
+                                <input id="envoirech" type="submit" />
+                            </form>
+                        </div>-->
+
+                        <div class="twitter-panel">
+                            <div class="tw-status"></div>
+                            <div class="profile-info"></div>
+                        </div>
+                    </div>
+                </li>
+                
+            </ul>
+            
+        </div>
+                
+        <!-- Zone centre (canvas) -->            
+        <div id="zonecentre">
+
+            <canvas id="canvas" width="0" height="0"></canvas>
+
+            <ul id="ctlzoom">
+                <li>
+                    <a class="home" href="#home">Home</a>
+                </li>
+                <li>
+                    <a class="zoom in" href="#zoom-in">+</a>
+                </li>
+                <!--<li id="zoneslider">
+                    <div id="slider">&nbsp;</div>
+                </li>-->
+                <li>
+                    <a class="zoom out" href="#zoom-out">-</a>
+                </li>
+                <li>
+                    <a class="find-user" href="#find-user">Find user</a>
+                    <div class="research">
+                        <form id="recherche"><input id="inputrecherche" value="" placeholder="Find user" title="Find a user on the map" autocomplete="off" />
+                            <input id="envoirech" type="submit" />
+                        </form>
+                    </div>
+                </li>
+            </ul>
+
+
+            <a href="#" id="btnedges" title="Hide connections"> </a>
+
+            <div id="zonemini">
+                <canvas id="miniature" width="0" height="0"></canvas>
+            </div>
+
+                        
+        </div>
+        
+        
+        <div id="lightbox">
+            <div class="bg"></div>
+            <div class="box">
+                <a href="#close" class="close glyph general" title="Close">g</a>
+                <div class="content"></div>
+            </div>
+        </div>
+        
+        <script type="text/javascript">
+    
+            $(document).ready( function() {
+                
+                // Projets
+                                
+                Blu.projects.search         = [];
+                Blu.projects.user           = [{"id":"16492","type":"search-user","service":"twitter","title":"Visualization of @WayneRooney community","dates":{"min":"","max":"","timeOffset":0},"graphs_dir":"user517\/project16492\/json\/","refreshed_at":"2013-05-31 14:40:31","query":"","twitter_screen_name":"WayneRooney"},{"id":"16490","type":"search-user","service":"twitter","title":"Visualization of @rooney community","dates":{"min":"","max":"","timeOffset":0},"graphs_dir":"user517\/project16490\/json\/","refreshed_at":"2013-05-31 14:39:43","query":"","twitter_screen_name":"rooney"},{"id":"16487","type":"search-user","service":"twitter","title":"Visualization of @TheRealAC3 community","dates":{"min":"","max":"","timeOffset":0},"graphs_dir":"user517\/project16487\/json\/","refreshed_at":"2013-05-31 14:32:48","query":"","twitter_screen_name":"TheRealAC3"},{"id":"16486","type":"search-user","service":"twitter","title":"Visualization of @chelseafc community","dates":{"min":"","max":"","timeOffset":0},"graphs_dir":"user517\/project16486\/json\/","refreshed_at":"2013-05-31 14:32:34","query":"","twitter_screen_name":"chelseafc"},{"id":"16485","type":"search-user","service":"twitter","title":"Visualization of @Torres community","dates":{"min":"","max":"","timeOffset":0},"graphs_dir":"user517\/project16485\/json\/","refreshed_at":"2013-05-31 14:31:58","query":"","twitter_screen_name":"Torres"},{"id":"16475","type":"search-user","service":"twitter","title":"Visualization of @hazardeden10 community","dates":{"min":"","max":"","timeOffset":0},"graphs_dir":"user517\/project16475\/json\/","refreshed_at":"2013-05-31 13:40:44","query":"","twitter_screen_name":"hazardeden10"},{"id":"16474","type":"search-user","service":"twitter","title":"Visualization of @juanmata10 community","dates":{"min":"","max":"","timeOffset":0},"graphs_dir":"user517\/project16474\/json\/","refreshed_at":"2013-05-31 13:37:15","query":"","twitter_screen_name":"juanmata10"},{"id":"16473","type":"search-user","service":"twitter","title":"Visualization of @DavidLuiz_4 community","dates":{"min":"","max":"","timeOffset":0},"graphs_dir":"user517\/project16473\/json\/","refreshed_at":"2013-05-31 13:36:48","query":"","twitter_screen_name":"DavidLuiz_4"},{"id":"16472","type":"search-user","service":"twitter","title":"Visualization of @hazard community","dates":{"min":"","max":"","timeOffset":0},"graphs_dir":"user517\/project16472\/json\/","refreshed_at":"2013-05-31 13:36:12","query":"","twitter_screen_name":"hazard"},{"id":"16471","type":"search-user","service":"twitter","title":"Visualization of @Oscar_ID community","dates":{"min":"","max":"","timeOffset":0},"graphs_dir":"user517\/project16471\/json\/","refreshed_at":"2013-05-31 13:33:37","query":"","twitter_screen_name":"Oscar_ID"},{"id":"5661","type":"search-user","service":"twitter","title":"Visualization of @bluenod community","dates":{"min":"","max":"","timeOffset":0},"graphs_dir":"user517\/project5661\/json\/","refreshed_at":"2013-04-04 17:51:51","query":"","twitter_screen_name":"bluenod"},{"id":"3939","type":"search-user","service":"twitter","title":"Visualization of @HONGSu1989 community","dates":{"min":"","max":"","timeOffset":0},"graphs_dir":"user517\/project3939\/json\/","refreshed_at":"2013-02-28 17:23:24","query":"","twitter_screen_name":"HONGSu1989"}];
+                Blu.projects.home_timeline  = {};                
+    
+                // Urls
+                Blu.app.urls.main           = 'http://bluenod.com'; 
+                Blu.app.urls.alt            = []; 
+                Blu.app.urls.preview        = 'http://bluenod.com/img/preview.jpg';
+
+                // Utilisateur courant
+                Blu.user                    = Blu.fn.user.getDefaultUser();
+                Blu.user.id                 = 517;
+                Blu.user.screen_name        = 'HONGSu1989';
+                Blu.user.user_id            = '1227166093';
+                Blu.user.profile_image_url  = 'http://a0.twimg.com/sticky/default_profile_images/default_profile_6_normal.png';
+                Blu.user.created_at         = Blu.fn.misc.dateStringToObject( '2013-02-28 09:57:24', 0 );
+                Blu.user.isFromTeam         = 0;
+
+                Blu.user.can.createPremiumProjects  = 0;
+                Blu.user.can.createHashtagSearch    = 1;
+                Blu.user.can.oneClickMapUser        = 1;
+                Blu.user.can.exportTopUsersCsv      = 0;
+                
+                // Map
+                Blu.config.map.showLabels       = false;
+                
+                // Time Machine
+                Blu.config.timemachine.activated    = 1;
+                Blu.config.timemachine.hasArchive   = 0;
+                
+                // Timeline
+                //Blu.config.timeline.autoWidth = true;
+                
+                // Tweets
+                Blu.config.tweets.getNew            = 0;
+                //Blu.config.tweets.getNew            = false;
+                //Blu.config.tweets.loadLimit         = 500;
+                //Blu.config.tweets.loadAllPrevious   = 0;
+                //Blu.config.tweets.getNew_API        = false;                
+                //Blu.config.tweets.grabClientSide    = true;
+                
+                // Users
+                Blu.config.users.profilePopUp       = false;
+                                
+                // Misc
+                Blu.lang                    = 'en';
+                Blu.share.html              = "<a href=\"https:\/\/twitter.com\/share\" class=\"twitter-share-button\" data-url=\"http:\/\/bluenod.com\" data-lang=\"en\" data-align=\"right\">Tweet<\/a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=\"http:\/\/platform.twitter.com\/widgets.js\";fjs.parentNode.insertBefore(js,fjs);}}(document,\"script\",\"twitter-wjs\");<\/script>";
+                Blu.config.others.embedly.activated = 0;
+                Blu.config.clientMode       = 1;
+                
+                // Debug
+                Blu.debugMode               = false;
+                Blu.dev                     = false;
+                
+                                    
+                Blu.config.timeNavigation   = false;
+                Blu.config.timeNavGlobal    = false;
+                
+                // Notifications
+                Blu.notifications = [];
+                
+                                Blu.uservoice = "<script type=\"text\/javascript\">var uvOptions = {};(function() {var uv = document.createElement('script'); uv.type = 'text\/javascript'; uv.async = true;uv.src = ('https:' == document.location.protocol ? 'https:\/\/' : 'http:\/\/') + 'widget.uservoice.com\/XzZ9bQ0naqUF6mCJp26Vg.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s);})();<\/script>";
+                                
+                /*
+                 * Lancement de l'appli
+                 */
+                Blu.init();
+ 
+            });
+        </script>
+        
+        
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+
+        _gaq.push(['_setAccount', 'UA-29795278-1']);
+    _gaq.push(['_setDomainName', '.bluenod.com']);
+    
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_trackPageLoadTime']);
+
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+         
+    </body>
+</html>
