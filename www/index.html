@@ -177,15 +177,21 @@ mixpanel.init("711a34dff1c30556576f5c0750cb62bb");</script><!-- end Mixpanel -->
             $(document).ready( function() {
                 
                 // Projets
+
+                alert('ready, javascript begins');
                                 
                 Blu.projects.search         = [];
                 Blu.projects.user           = [{"id":"16492","type":"search-user","service":"twitter","title":"Visualization of @WayneRooney community","dates":{"min":"","max":"","timeOffset":0},"graphs_dir":"user517\/project16492\/json\/","refreshed_at":"2013-05-31 14:40:31","query":"","twitter_screen_name":"WayneRooney"},{"id":"16490","type":"search-user","service":"twitter","title":"Visualization of @rooney community","dates":{"min":"","max":"","timeOffset":0},"graphs_dir":"user517\/project16490\/json\/","refreshed_at":"2013-05-31 14:39:43","query":"","twitter_screen_name":"rooney"},{"id":"16487","type":"search-user","service":"twitter","title":"Visualization of @TheRealAC3 community","dates":{"min":"","max":"","timeOffset":0},"graphs_dir":"user517\/project16487\/json\/","refreshed_at":"2013-05-31 14:32:48","query":"","twitter_screen_name":"TheRealAC3"},{"id":"16486","type":"search-user","service":"twitter","title":"Visualization of @chelseafc community","dates":{"min":"","max":"","timeOffset":0},"graphs_dir":"user517\/project16486\/json\/","refreshed_at":"2013-05-31 14:32:34","query":"","twitter_screen_name":"chelseafc"},{"id":"16485","type":"search-user","service":"twitter","title":"Visualization of @Torres community","dates":{"min":"","max":"","timeOffset":0},"graphs_dir":"user517\/project16485\/json\/","refreshed_at":"2013-05-31 14:31:58","query":"","twitter_screen_name":"Torres"},{"id":"16475","type":"search-user","service":"twitter","title":"Visualization of @hazardeden10 community","dates":{"min":"","max":"","timeOffset":0},"graphs_dir":"user517\/project16475\/json\/","refreshed_at":"2013-05-31 13:40:44","query":"","twitter_screen_name":"hazardeden10"},{"id":"16474","type":"search-user","service":"twitter","title":"Visualization of @juanmata10 community","dates":{"min":"","max":"","timeOffset":0},"graphs_dir":"user517\/project16474\/json\/","refreshed_at":"2013-05-31 13:37:15","query":"","twitter_screen_name":"juanmata10"},{"id":"16473","type":"search-user","service":"twitter","title":"Visualization of @DavidLuiz_4 community","dates":{"min":"","max":"","timeOffset":0},"graphs_dir":"user517\/project16473\/json\/","refreshed_at":"2013-05-31 13:36:48","query":"","twitter_screen_name":"DavidLuiz_4"},{"id":"16472","type":"search-user","service":"twitter","title":"Visualization of @hazard community","dates":{"min":"","max":"","timeOffset":0},"graphs_dir":"user517\/project16472\/json\/","refreshed_at":"2013-05-31 13:36:12","query":"","twitter_screen_name":"hazard"},{"id":"16471","type":"search-user","service":"twitter","title":"Visualization of @Oscar_ID community","dates":{"min":"","max":"","timeOffset":0},"graphs_dir":"user517\/project16471\/json\/","refreshed_at":"2013-05-31 13:33:37","query":"","twitter_screen_name":"Oscar_ID"},{"id":"5661","type":"search-user","service":"twitter","title":"Visualization of @bluenod community","dates":{"min":"","max":"","timeOffset":0},"graphs_dir":"user517\/project5661\/json\/","refreshed_at":"2013-04-04 17:51:51","query":"","twitter_screen_name":"bluenod"},{"id":"3939","type":"search-user","service":"twitter","title":"Visualization of @HONGSu1989 community","dates":{"min":"","max":"","timeOffset":0},"graphs_dir":"user517\/project3939\/json\/","refreshed_at":"2013-02-28 17:23:24","query":"","twitter_screen_name":"HONGSu1989"}];
-                Blu.projects.home_timeline  = {};                
+                Blu.projects.home_timeline  = {};       
+
+                alert('Projet inits');         
     
                 // Urls
                 Blu.app.urls.main           = 'http://bluenod.com'; 
                 Blu.app.urls.alt            = []; 
                 Blu.app.urls.preview        = 'http://bluenod.com/img/preview.jpg';
+
+                alert('url');
 
                 // Utilisateur courant
                 Blu.user                    = Blu.fn.user.getDefaultUser();
@@ -236,6 +242,8 @@ mixpanel.init("711a34dff1c30556576f5c0750cb62bb");</script><!-- end Mixpanel -->
                 Blu.config.timeNavigation   = false;
                 Blu.config.timeNavGlobal    = false;
                 
+
+                alert('parameter inits');
                 // Notifications
                 Blu.notifications = [];
                 
@@ -245,6 +253,8 @@ mixpanel.init("711a34dff1c30556576f5c0750cb62bb");</script><!-- end Mixpanel -->
                  * Lancement de l'appli
                  */
                 Blu.init();
+
+                alert('blu inits');
  
             });
         </script>
